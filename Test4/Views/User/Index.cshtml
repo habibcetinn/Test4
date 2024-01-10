@@ -1,0 +1,146 @@
+﻿@using DAL.Models
+
+
+@{
+}
+@model List<User>
+<html>
+<body>
+    <table class="table table-hover table-striped odito-table" cellspacing="0" width="100%" id="stripedTable">
+        <thead>
+            <tr>
+                <!-- NOTE * : Inline Style Width For Table Cell is Required as it may differ from user to user
+                Comman Practice Followed
+                -->
+                <th>Ad Soyad</th>
+                <th>Email</th>
+                <th>Kullanıcı Adı</th>
+                <th>Durum</th>
+                <th>Ünvan</th>
+                <th>Marka</th>
+                <th>Merkez Ekibi</th>
+                <th class="w-211 odito-process-thead">İşlem</th>
+            </tr>
+        </thead>
+        <tbody id="tableContent">
+
+            <tr>
+                <td class="v-align-middle semi-bold">Test  Operasyon Müdürü</td>
+                <td class="v-align-middle semi-bold">opstest@mailinator.com_ex</td>
+                <td class="v-align-middle semi-bold">opstest2</td>
+                <td class="v-align-middle semi-bold">Aktif</td>
+                <td class="v-align-middle semi-bold">
+                    <div style="max-height: 200px; overflow: auto; overflow-x: hidden; ">
+                        Operasyon Müdürü
+                    </div>
+                </td>
+                <td class="v-align-middle semi-bold">Habip Markası</td>
+                <td class="v-align-middle semi-bold"></td>
+                <td class="v-align-middle semi-bold odito-process-td">
+                    <div class="odito-process w-211">
+                        <a class="btn button-right-7 btnUpdate" href="/user/detail/3193/">
+                            <i class="fa fa-pencil"></i> Düzenle
+                        </a>
+                        
+                            <i class="fa fa-trash-o"></i> Sil
+                        </a>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="v-align-middle semi-bold">Habip Marka Yöneticisi</td>
+                <td class="v-align-middle semi-bold">markahabip@mailinator.com</td>
+                <td class="v-align-middle semi-bold">markahabip</td>
+                <td class="v-align-middle semi-bold">Aktif</td>
+                <td class="v-align-middle semi-bold">
+                    <div style="max-height: 200px; overflow: auto; overflow-x: hidden; ">
+                        Marka Yöneticisi
+                    </div>
+                </td>
+                <td class="v-align-middle semi-bold">Habip Markası</td>
+                <td class="v-align-middle semi-bold"></td>
+                <td class="v-align-middle semi-bold odito-process-td">
+                    <div class="odito-process w-211">
+                        <a class="btn button-right-7 btnUpdate" href="/user/detail/3192/">
+                            <i class="fa fa-pencil"></i> Düzenle
+                        </a>
+                        <a class="btn button-right-7 btnDelete" data-target="#modalRemoveItem" data-toggle="modal" onclick="deleteItem('/user/delete/3192/','Kaydı silmek istediğinize emin misiniz?');" href="javascript:;">
+                            <i class="fa fa-trash-o"></i> Sil
+                        </a>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="v-align-middle semi-bold">Hakan Tunç</td>
+                <td class="v-align-middle semi-bold">h.tunç@gmail.com</td>
+                <td class="v-align-middle semi-bold">Hakan</td>
+                <td class="v-align-middle semi-bold">Silinmiş</td>
+                <td class="v-align-middle semi-bold">
+                    <div style="max-height: 200px; overflow: auto; overflow-x: hidden; ">
+                        Marka Yöneticisi
+                    </div>
+                </td>
+                <td class="v-align-middle semi-bold">Habip Markası</td>
+                <td class="v-align-middle semi-bold"></td>
+                <td class="v-align-middle semi-bold odito-process-td">
+                    <div class="odito-process w-211">
+                        <a class="btn button-right-7 btnUpdate" href="/user/detail/3194/">
+                            <i class="fa fa-pencil"></i> Düzenle
+                        </a>
+                        <a class="btn button-right-7 btnDelete" data-target="#modalRemoveItem" data-toggle="modal" onclick="deleteItem('/user/delete/3194/','Kaydı silmek istediğinize emin misiniz?');" href="javascript:;">
+                            <i class="fa fa-trash-o"></i> Sil
+                        </a>
+                    </div>
+                </td>
+            </tr>
+
+        </tbody>
+        <tfoot>
+            <tr>
+                <th> <input class="form-control" id="NameSurname" name="NameSurname" placeholder="Ad Soyad" type="text" value=""> </th>
+                <th> <input class="form-control" id="Email" name="Email" placeholder="Email" type="text" value=""></th>
+                <th> <input class="form-control" id="UserName" name="UserName" placeholder="Kullanıcı Adı" type="text" value=""> </th>
+                <th>
+                    <select class="input-validation-error form-control" id="Status" name="Status">
+                        <option value="">Seçiniz</option>
+                        <option value="1">Aktif</option>
+                        <option value="0">Pasif</option>
+                    </select>
+                </th>
+                <th>
+                    <select class="input-validation-error form-control" id="RoleId" name="RoleId">
+                        <option value="">Seçiniz</option>
+                        <option value="1">Yönetici</option>
+                        <option value="2">Operasyon Direktörü</option>
+                        <option value="3">Operasyon Müdürü</option>
+                        <option value="4">Bölge Müdürü</option>
+                        <option value="5">Lokasyon Müdürü</option>
+                        <option value="6">Denetçi</option>
+                        <option value="7">Marka Yöneticisi</option>
+                    </select>
+                </th>
+                <th>
+                    <select class="form-control" id="BrandId" name="BrandId">
+                        <option value="">Seçiniz</option>
+                        <option selected="selected" value="176">Habip Markası</option>
+                    </select>
+                </th>
+                <th>
+                    <select class="input-validation-error form-control" id="CentralTeamId" name="CentralTeamId">
+                        <option value="">Seçiniz</option>
+                    </select>
+                </th>
+            </tr>
+        </tfoot>
+    </table>
+
+
+
+    @foreach (var item in Model)
+    {
+        <h3>
+            @item.Email
+        </h3>
+    }
+</body>
+</html>
