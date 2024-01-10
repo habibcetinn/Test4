@@ -15,5 +15,10 @@ namespace Test4.Controllers
             var result=_userService.GetAll();
             return View(result);
         }
+        public IActionResult Detail()
+        {
+            var result = _userService.GetAll();
+            return View(result);
+        }
     }
 }
